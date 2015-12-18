@@ -17,7 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TuristFlow
 {
-    /// <summary>
+    /// <summary> 
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     sealed partial class App : Application
