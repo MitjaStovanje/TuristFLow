@@ -4,7 +4,6 @@
     xmlns:local="using:TuristFlow"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
     x:Class="TuristFlow.firstPage"
     mc:Ignorable="d">
 
@@ -28,6 +27,5 @@
                 </DataTemplate>
             </HubSection>
         </Hub>
-        <UI:AdControl HorizontalAlignment="Left" Height="100" Margin="90,540,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
