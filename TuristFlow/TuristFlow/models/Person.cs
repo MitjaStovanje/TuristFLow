@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TuristFlow.models
 {
-    class Person
+   public class Person
     {
         public int ID { get; set; }
+        public string IDLocal { get; set; }
         public int Age { get; set; }
         public string groupt { get; set; }
         public string sleeping { get; set; }

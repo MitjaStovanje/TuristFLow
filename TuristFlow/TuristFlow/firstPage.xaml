@@ -75,7 +75,7 @@
                         </StackPanel>
                         
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" x:Name="SubmitButton" Content="Start" Width="100" Height="40" />
+                            <Button HorizontalAlignment="Center" x:Name="SubmitButton" Click="SubmitButton_Click_1"  Content="Start" Width="100" Height="40" />
                             <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,100,0,0" VerticalAlignment="Top" Source="Assets/car_emoji.png" Width="100"/>
                         </StackPanel>
                         
