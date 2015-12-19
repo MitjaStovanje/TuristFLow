@@ -14,6 +14,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using Windows.Networking.Connectivity;
+using System.Collections.Generic;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,6 +27,7 @@ namespace TuristFlow
     public sealed partial class firstPage : Page
     {
         Person p;
+        SQLiteConnection conn;
         public firstPage()
         {
             this.InitializeComponent();
@@ -45,12 +47,18 @@ namespace TuristFlow
         {
             p.IDLocal = RandomString(10);
             LocalDBConnection();
+            if (p != null)
+            {
+                conn.Insert(p);
+            }
         }
 
+
+        //localDatabase
         private void LocalDBConnection()
         {
             string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.TursiFlow");
-            SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             conn.CreateTable<Person>();
         }
 
@@ -67,8 +75,43 @@ namespace TuristFlow
         // check agre.
         private void ageRB_Checked(object sender, RoutedEventArgs e)
         {
-            var radio = sender as RadioButton;
-            p.Age =radio.Content.ToString();
+            var Ageradio = sender as RadioButton;
+            p.Age = Ageradio.Content.ToString();
         }
+
+        private void companions_Checked(object sender, RoutedEventArgs e)
+        {
+            var companions = sender as RadioButton;
+            p.group = companions.Content.ToString();
+        }
+
+        private void stay_Checked(object sender, RoutedEventArgs e)
+        {
+            var stay = sender as RadioButton;
+            p.sleeping = stay.Content.ToString();
+        }
+
+        private void Transport3_Checked(object sender, RoutedEventArgs e)
+        {
+            var transport = sender as CheckBox;
+            p.Transport = transport.Content.ToString();
+        }
+
+        private void budget1_Checked(object sender, RoutedEventArgs e)
+        {
+            var budget = sender as RadioButton;
+            p.Budget = budget.ToString().Equals("limited");
+        }
+
+        private void tblength_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            var TravelTime = sender as TextBox;
+            if (TravelTime.Text != null)
+            {
+                p.TravelTime = Int32.Parse(TravelTime.Text.ToString());
+            }
+        }
+
+
     }
 }
