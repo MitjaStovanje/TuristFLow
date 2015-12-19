@@ -13,5 +13,6 @@ namespace TuristFlow.models
         string City { get; set; }
         string Types { get; set; }
         int Radius { get; set; }
+        string Name { get; set; }
     }
 }
