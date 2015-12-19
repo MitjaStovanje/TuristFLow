@@ -47,7 +47,7 @@
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            
+
             <HubSection x:Uid="HubSection4" Header="Days of staying" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
@@ -80,18 +80,16 @@
                             <TextBlock  Text="Tnx for data now you can use app. 
                                        We wish you happy travel." TextAlignment="Center"/>
                         </StackPanel>
-                        
+
                         <StackPanel>
                             <Button HorizontalAlignment="Center" x:Name="SubmitButton" Click="SubmitButton_Click_1"  Content="Start" Width="100" Height="40" />
                             <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,100,0,0" VerticalAlignment="Top" Source="Assets/car_emoji.png" Width="100"/>
                         </StackPanel>
-                        
+
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
         </Hub>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="148"/>
-
 
     </Grid>
 </Page>
