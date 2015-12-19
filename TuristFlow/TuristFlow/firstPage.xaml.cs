@@ -38,6 +38,8 @@ namespace TuristFlow
             bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return internet;
         }
+        
+        
         // saveData
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
         {
@@ -62,7 +64,7 @@ namespace TuristFlow
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        
+        // check agre.
         private void ageRB_Checked(object sender, RoutedEventArgs e)
         {
             var radio = sender as RadioButton;

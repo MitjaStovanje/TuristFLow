@@ -26,9 +26,10 @@
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="HubSection2" Header="Companions" Width="361">
+            <HubSection x:Uid="HubSection2" Header="Companions" Width="362">
                 <DataTemplate>
-                    <StackPanel Width="329" Height="526">
+
+                    <StackPanel  Width="329" Height="526">
                         <RadioButton x:Name="companions" Content="Alone" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
                         <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
                         <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
@@ -49,7 +50,7 @@
             <HubSection x:Uid="HubSection4" Header="Lenght of staying" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <TextBox x:Name="tblength" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="tblength"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
@@ -64,10 +65,10 @@
             <HubSection x:Uid="HubSection2" Header="Transport" Width="361">
                 <DataTemplate>
                 <StackPanel VerticalAlignment="Center" Height="526">
-                        <CheckBox x:Name="companions" Content="Car" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="companions" Content="Bus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="companions" Content="Bike" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="companions" Content="Train" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
