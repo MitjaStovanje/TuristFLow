@@ -17,11 +17,11 @@
                             <TextBlock Text="Vprašanje"/>
                         </StackPanel>
                         <StackPanel Width="362" Margin="0,20,0,0">
-                            <RadioButton x:Name="ageRB" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                            <RadioButton x:Name="ageRB1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                            <RadioButton x:Name="ageRB2" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                            <RadioButton x:Name="ageRB3" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                            <RadioButton x:Name="ageRB4" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <RadioButton x:Name="ageRB" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GroupName="age" Content="<25"/>
+                            <RadioButton x:Name="ageRB1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Content="25 - 35"/>
+                            <RadioButton x:Name="ageRB2" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Content="35 - 45"/>
+                            <RadioButton x:Name="ageRB3" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Content="45 - 55"/>
+                            <RadioButton x:Name="ageRB4" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Content=">55"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
