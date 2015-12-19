@@ -5,6 +5,15 @@ using System.Linq;
 using TuristFlow.models;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Text;
+using Windows.Networking.Connectivity;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -22,6 +31,12 @@ namespace TuristFlow
             this.InitializeComponent();
         }
 
+        public static bool CheckForInternetConnection()
+        {
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+            return internet;
+        }
         // saveData
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
         {
