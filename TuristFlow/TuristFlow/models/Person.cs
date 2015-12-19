@@ -11,7 +11,7 @@ namespace TuristFlow.models
         public int ID { get; set; }
         public string IDLocal { get; set; }
         public string Age { get; set; }
-        public string groupt { get; set; }
+        public string group { get; set; }
         public string sleeping { get; set; }
         public int TravelTime { get; set; }
         public bool Budget { get; set; }

@@ -30,20 +30,20 @@
                 <DataTemplate>
 
                     <StackPanel  Width="329" Height="526">
-                        <RadioButton x:Name="companions" Content="Alone" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                        <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                        <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                        <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
+                        <RadioButton x:Name="companions" Content="Alone" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="companions_Checked" GroupName="companions"/>
+                        <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="companions_Checked" GroupName="companions"/>
+                        <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="companions_Checked" GroupName="companions"/>
+                        <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="companions_Checked" GroupName="companions"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="HubSection3" Header="Stay" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                        <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                        <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                        <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
+                        <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
+                        <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
+                        <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
+                        <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
@@ -51,25 +51,25 @@
             <HubSection x:Uid="HubSection4" Header="Days of staying" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <TextBox x:Name="tblength" InputScope="Digits" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="tblength" TextChanged="tblength_TextChanged_1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="HubSection5" Header="Budget" Width="361">
                 <DataTemplate>
                     <StackPanel Width="500">
-                        <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="budget"/>
-                        <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="budget"/>
+                        <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Stretch" Checked="budget1_Checked"  VerticalAlignment="Stretch" GroupName="budget"/>
+                        <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Stretch" Checked="budget1_Checked" VerticalAlignment="Stretch" GroupName="budget"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="HubSection2" Header="Transport" Width="361">
                 <DataTemplate>
-                <StackPanel VerticalAlignment="Center">
-                        <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <StackPanel VerticalAlignment="Center" Height="526">
+                        <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Stretch"  Checked="Transport3_Checked" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Stretch" Checked="Transport3_Checked" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Stretch" Checked="Transport3_Checked" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Stretch" Checked="Transport3_Checked" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
@@ -90,6 +90,7 @@
                 </DataTemplate>
             </HubSection>
         </Hub>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="148"/>
 
 
     </Grid>
