@@ -40,8 +40,8 @@ namespace TuristFlow
             bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return internet;
         }
-        
-        
+
+
         // saveData
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
         {
@@ -52,6 +52,7 @@ namespace TuristFlow
                 conn.Insert(p);
             }
             Frame.Navigate(typeof(MainPage));
+
         }
 
 

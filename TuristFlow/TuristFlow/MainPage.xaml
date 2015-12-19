@@ -5,14 +5,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:Maps1="using:Bing.Maps"
     x:Class="TuristFlow.MainPage"
     mc:Ignorable="d">
 
     <Grid Background="SeaShell">
         <ListView x:Name="LV" >
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Height="Auto" Width="332" Margin="0,10,0,10"/>
-            <Maps:MapControl Height="338"/>
-            <TextBox x:Name="textBox" BorderBrush="Black" Background="Aqua" TextWrapping="Wrap" Text="TextBox" Height="92" Width="332" Margin="0,10,0,0" />
+            <TextBox x:Name="textBox" BorderBrush="Black" Background="Aqua" TextWrapping="Wrap" Text="TextBox" Height="92" Width="332" />
+            <Maps1:Map Height="100" Width="338"/>
         </ListView>
     </Grid>
 </Page>
