@@ -90,7 +90,6 @@
                 </DataTemplate>
             </HubSection>
         </Hub>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="148"/>
 
 
     </Grid>
