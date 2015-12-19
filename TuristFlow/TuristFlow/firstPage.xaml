@@ -9,23 +9,51 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Hub x:Name="Hub" x:Uid="Hub" Header="Questionnaire"  Background="Aqua">
-            <HubSection x:Uid="HubSection1" Header="Age" Width="361">
+            <HubSection x:Uid="HubSection1" VerticalAlignment="Center" Header="Age" Width="300px">
                 <DataTemplate>
-                    <StackPanel Width="329" Height="526">
+                    <StackPanel Width="500">
                         <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <RadioButton x:Name="radioButton2" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="HubSection2" Header="Companions" Width="361">
+            <HubSection x:Uid="HubSection2" Header="Companions" MinWidth="361">
                 <DataTemplate>
-                    <StackPanel Width="329" Height="526">
+                    <StackPanel VerticalAlignment="Center" Height="526">
                         <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
+            <HubSection x:Uid="HubSection2" Header="Companions" MinWidth="361">
+                <DataTemplate>
+                    <StackPanel VerticalAlignment="Center" Height="526">
+                        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+       
+        <HubSection x:Uid="HubSection2" Header="Companions" MinWidth="361">
+            <DataTemplate>
+                <StackPanel VerticalAlignment="Center" Height="526">
+                    <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </StackPanel>
+            </DataTemplate>
+        </HubSection>
+       
+        <HubSection x:Uid="HubSection2" Header="Companions" MinWidth="361">
+            <DataTemplate>
+                <StackPanel VerticalAlignment="Center" Height="526">
+                    <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </StackPanel>
+            </DataTemplate>
+        </HubSection>
         </Hub>
+
+
     </Grid>
 </Page>
