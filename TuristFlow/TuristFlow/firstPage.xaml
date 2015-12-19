@@ -52,15 +52,15 @@
             </HubSection>
             <HubSection x:Uid="HubSection5" Header="Budget" Width="361">
                 <DataTemplate>
-                    <StackPanel Width="329" Height="526">
+                    <StackPanel Width="500">
                         <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="HubSection6" Header="Transport" Width="361">
+            <HubSection x:Uid="HubSection2" Header="Companions" Width="361">
                 <DataTemplate>
-                    <StackPanel Width="329" Height="526">
+                <StackPanel VerticalAlignment="Center" Height="526">
                         <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
@@ -83,5 +83,7 @@
                 </DataTemplate>
             </HubSection>
         </Hub>
+
+
     </Grid>
 </Page>
