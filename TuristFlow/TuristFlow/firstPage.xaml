@@ -29,40 +29,45 @@
             <HubSection x:Uid="HubSection2" Header="Companions" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <RadioButton x:Name="companions" Content="Alone" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
+                        <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
+                        <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
+                        <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="HubSection3" Header="Stay" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
+                        <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
+                        <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
+                        <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="HubSection4" Header="Lenght of staying" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="tblength" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="HubSection5" Header="Budget" Width="361">
                 <DataTemplate>
                     <StackPanel Width="500">
-                        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="budget"/>
+                        <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="budget"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="HubSection2" Header="Companions" Width="361">
+            <HubSection x:Uid="HubSection2" Header="Transport" Width="361">
                 <DataTemplate>
                 <StackPanel VerticalAlignment="Center" Height="526">
-                        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="companions" Content="Car" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="companions" Content="Bus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="companions" Content="Bike" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <CheckBox x:Name="companions" Content="Train" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
