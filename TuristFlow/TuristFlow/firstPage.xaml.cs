@@ -25,10 +25,11 @@ namespace TuristFlow
     /// </summary>
     public sealed partial class firstPage : Page
     {
-       
+        Person p;
         public firstPage()
         {
             this.InitializeComponent();
+            p = new Person();
         }
 
         public static bool CheckForInternetConnection()
@@ -40,17 +41,17 @@ namespace TuristFlow
         // saveData
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
         {
-            Person p = new Person();
             p.IDLocal = RandomString(10);
             LocalDBConnection();
         }
 
         private void LocalDBConnection()
         {
-            string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.Person");
+            string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.TursiFlow");
             SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             conn.CreateTable<Person>();
         }
+
 
         //generate rendom string for IDLocal
         private static string RandomString(int length)
@@ -61,5 +62,11 @@ namespace TuristFlow
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        
+        private void ageRB_Checked(object sender, RoutedEventArgs e)
+        {
+            var radio = sender as RadioButton;
+            p.Age =radio.Content.ToString();
+        }
     }
 }
