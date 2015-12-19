@@ -45,6 +45,7 @@ namespace TuristFlow
         {
             p.IDLocal = RandomString(10);
             LocalDBConnection();
+            Frame.Navigate(typeof(MainPage));
         }
 
         private void LocalDBConnection()

@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
         <Hub x:Name="Hub" x:Uid="Hub" Header="Questionnaire"  Background="White">
             <HubSection x:Uid="HubSection1" Header="Age" Width="362" BorderBrush="Black">
                 <DataTemplate>
@@ -47,10 +47,11 @@
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="HubSection4" Header="Lenght of staying" Width="361">
+            
+            <HubSection x:Uid="HubSection4" Header="Days of staying" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
-                        <TextBox x:Name="tblength"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="tblength" InputScope="Digits" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
@@ -64,7 +65,7 @@
             </HubSection>
             <HubSection x:Uid="HubSection2" Header="Transport" Width="361">
                 <DataTemplate>
-                <StackPanel VerticalAlignment="Center" Height="526">
+                <StackPanel VerticalAlignment="Center">
                         <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
