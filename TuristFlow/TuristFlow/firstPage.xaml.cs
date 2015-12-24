@@ -17,6 +17,7 @@ using Windows.Networking.Connectivity;
 using System.Collections.Generic;
 
 
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace TuristFlow
@@ -40,7 +41,6 @@ namespace TuristFlow
             bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return internet;
         }
-
 
         // saveData
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
