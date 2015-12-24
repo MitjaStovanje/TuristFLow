@@ -8,88 +8,112 @@
     mc:Ignorable="d">
 
     
-    <Grid>
-        <Hub x:Name="Hub" x:Uid="Hub" Header="Questionnaire"  Background="White">
-            <HubSection x:Uid="HubSection1" Header="Age" Width="362" BorderBrush="Black">
-                <DataTemplate>
-                    <StackPanel>
-                        <StackPanel>
-                            <TextBlock Text="Vprašanje"/>
-                        </StackPanel>
-                        <StackPanel Width="362" Margin="0,20,0,0">
-                            <RadioButton x:Name="ageRB"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GroupName="age" Checked="ageRB_Checked" Content="25"/>
-                            <RadioButton x:Name="ageRB1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Checked="ageRB_Checked"  Content="25 - 35"/>
-                            <RadioButton x:Name="ageRB2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Checked="ageRB_Checked"  Content="35 - 45"/>
-                            <RadioButton x:Name="ageRB3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Checked="ageRB_Checked"  Content="45 - 55"/>
-                            <RadioButton x:Name="ageRB4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="age" Checked="ageRB_Checked"  Content="55"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-            <HubSection x:Uid="HubSection2" Header="Companions" Width="362">
-                <DataTemplate>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
 
-                    <StackPanel  Width="329" Height="526">
-                        <RadioButton x:Name="companions" Content="Alone" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                        <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                        <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                        <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-            <HubSection x:Uid="HubSection3" Header="Stay" Width="361">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="Questionnaire"  Background="White">
+                <HubSection x:Uid="HubSection1" Header="Age" Width="362" BorderBrush="Black" Background="Beige">
                 <DataTemplate>
-                    <StackPanel Width="329" Height="526">
-                        <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                        <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                        <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                        <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-            <HubSection x:Uid="HubSection4" Header="Lenght of staying" Width="361">
-                <DataTemplate>
-                    <StackPanel Width="329" Height="526">
-                        <TextBox x:Name="tblength" InputScope="Digits"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-            <HubSection x:Uid="HubSection5" Header="Budget" Width="361">
-                <DataTemplate>
-                    <StackPanel Width="500">
-                        <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="budget"/>
-                        <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="budget"/>
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-            <HubSection x:Uid="HubSection2" Header="Transport" Width="361">
-                <DataTemplate>
-                    <StackPanel VerticalAlignment="Center">
-                        <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-            <HubSection x:Uid="HubSection7" Header="Start" Width="361">
-                <DataTemplate>
-                    <StackPanel Width="329" Height="526">
-                        <StackPanel Width="329" Height="50">
-                            <TextBlock  Text="Tnx for data now you can use app. 
-                                       We wish you happy travel." TextAlignment="Center"/>
+                        <StackPanel x:Name="StackPanel"  Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                    <StackPanel>
+                                <Image Name="Torta" Height="100" Margin="0,70,0,0" Source="Assets/age_emoji.png" />
                         </StackPanel>
-                        
-                        <StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0" >
+                                <RadioButton x:Name="ageRB"  HorizontalAlignment="Center" GroupName="age" Checked="ageRB_Checked" Content="25"/>
+                                <RadioButton x:Name="ageRB1" HorizontalAlignment="Center" GroupName="age" Checked="ageRB_Checked"  Content="25 - 35"/>
+                                <RadioButton x:Name="ageRB2" HorizontalAlignment="Center" GroupName="age" Checked="ageRB_Checked"  Content="35 - 45"/>
+                                <RadioButton x:Name="ageRB3" HorizontalAlignment="Center" GroupName="age" Checked="ageRB_Checked"  Content="45 - 55"/>
+                                <RadioButton x:Name="ageRB4" HorizontalAlignment="Center" GroupName="age" Checked="ageRB_Checked"  Content="55"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+                <HubSection x:Uid="HubSection2" Header="Companions" Width="362" BorderBrush="Black" Background="Beige" BorderThickness="0">
+                <DataTemplate>
+                        <StackPanel x:Name="StackPanel" Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <StackPanel>
+                                <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/group_emoji.png" />
+                    </StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0" >
+                                <RadioButton x:Name="companions"  Content="Alone" HorizontalAlignment="Center"  GroupName="companions"/>
+                                <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Center"  GroupName="companions"/>
+                                <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Center"  GroupName="companions"/>
+                                <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Center"  GroupName="companions"/>
+                            </StackPanel>
+                        </StackPanel>
+                </DataTemplate>
+            </HubSection>
+                <HubSection x:Uid="HubSection3" Header="Stay" Width="362" Background="Beige">
+                <DataTemplate>
+                        <StackPanel x:Name="StackPanel" Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <StackPanel>
+                                <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/house_emoji.png" />
+                    </StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0">
+                                <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
+                                <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
+                                <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
+                                <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
+                            </StackPanel>
+                        </StackPanel>
+                </DataTemplate>
+            </HubSection>
+                <HubSection x:Uid="HubSection4" Header="Days of staying" Width="362" Background="Beige">
+                <DataTemplate>
+                        <StackPanel x:Name="StackPanel" Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <StackPanel>
+                                <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/time_emoji.png" />
+                            </StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0">
+                                <TextBox x:Name="tblength" InputScope="Digits"  HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                            </StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+                <HubSection x:Uid="HubSection5" Header="Budget" Width="362" Background="Beige">
+                <DataTemplate>
+                        <StackPanel x:Name="StackPanel" Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <StackPanel>
+                                <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/budget_emoji.png" />
+                            </StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0">
+                                <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="budget"/>
+                                <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="budget"/>
+                            </StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+                <HubSection x:Uid="HubSection2" Header="Transport" Width="362" Background="Beige">
+                <DataTemplate>
+                        <StackPanel x:Name="StackPanel" Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <StackPanel>
+                                <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/car_emoji.png" />
+                            </StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0">
+                                <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                                <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                                <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                                <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                            </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+                <HubSection x:Uid="HubSection7" Header="Start" Width="362" Background="Beige">
+                <DataTemplate>
+                        <StackPanel x:Name="StackPanel" Width="332"  Height="500" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <StackPanel >
+                                <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/first_page.png" />
+                        </StackPanel>
+                            <StackPanel Width="332" Margin="0,70,0,0">
                             <Button HorizontalAlignment="Center" x:Name="SubmitButton" Click="SubmitButton_Click_1"  Content="Start" Width="100" Height="40" />
-                            <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,100,0,0" VerticalAlignment="Top" Source="Assets/car_emoji.png" Width="100"/>
                         </StackPanel>
-                        
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
         </Hub>
 
-
+        </ScrollViewer>
     </Grid>
 </Page>

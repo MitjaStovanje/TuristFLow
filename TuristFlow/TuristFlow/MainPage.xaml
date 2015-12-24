@@ -7,12 +7,26 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     x:Class="TuristFlow.MainPage"
     mc:Ignorable="d">
+    <ScrollViewer>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="SeaShell">
-        <ListView x:Name="LV" >
-            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Height="Auto" Width="332" Margin="0,10,0,10"/>
-            <TextBox x:Name="textBox" BorderBrush="Black" Background="Aqua" TextWrapping="Wrap" Text="TextBox" Height="92" Width="332" />
-            <Maps:MapControl Height="409" Width="338"/>
-        </ListView>
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="450"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <RelativePanel MinHeight="50" MaxHeight="50" Grid.Row="0">
+                <TextBox x:Name="tb"  Width="300" Height="50" TextAlignment="Justify" TextWrapping="Wrap" RelativePanel.AlignLeftWithPanel="True" />
+                    <Button x:Name="Search" Width="60" Height="50"  RelativePanel.RightOf="tb" >
+                        <SymbolIcon Symbol="Find"/>
+                    </Button>
+            </RelativePanel>
+
+            <Maps:MapControl x:Name="InputMap" Grid.Row="1" 
+                             MapServiceToken="LKPRqZnG9CcbTJY27XAP~5SfRqRKNO8PO1Ms-xSSo7A~Ak2Dh3SKjEA5HAXw48ET241QJcDKJNn_MZO-7eO3NdmA2f00xqSZZIacmmN3agD1" />
+
+            <TextBlock x:Name="Content" Grid.Row="2" Margin="15" Height="auto" TextWrapping="Wrap" TextAlignment="Justify" Text="Lorem Ipsum je slepi tekst, ki se uporablja pri razvoju tipografij in pri pripravi za tisk. Lorem Ipsum je v uporabi že več kot petsto let saj je to kombinacijo znakov neznani tiskar združil v vzorčno knjigo že v začetku 16. stoletja. To besedilo pa ni zgolj preživelo pet stoletij, temveč se je z malenkostnimi spremembami uspešno uveljavilo tudi v elektronskem namiznem založništvu. Na priljubljenosti je Lorem Ipsum pridobil v sedemdesetih letih prejšnjega stoletja, ko so na trg lansirali Letraset folije z Lorem Ipsum odstavki. V zadnjem času se Lorem Ipsum pojavlja tudi v priljubljenih programih za namizno založništvo kot je na primer Aldus PageMaker."/>
+
+        </Grid>
+    </ScrollViewer>
 </Page>

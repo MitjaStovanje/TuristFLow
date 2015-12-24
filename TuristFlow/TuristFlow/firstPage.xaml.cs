@@ -51,8 +51,7 @@ namespace TuristFlow
             {
                 conn.Insert(p);
             }
-            Frame.Navigate(typeof(MainPage));
-
+            this.Frame.Navigate(typeof(MainPage));
         }
 
 
