@@ -7,9 +7,9 @@
     x:Class="TuristFlow.firstPage"
     mc:Ignorable="d">
 
-
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <HubSection x:Name="Hub" x:Uid="Hub" Header="Questionnaire"  Background="White">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="Questionnaire"  Background="White">
             <HubSection x:Uid="HubSection1" Header="Age" Width="362" BorderBrush="Black">
                 <DataTemplate>
                     <StackPanel>
@@ -35,16 +35,9 @@
                         <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
                         <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="companions"/>
                     </StackPanel>
-                    <StackPanel Width="332" Margin="0,70,0,0" >
-                        <RadioButton x:Name="companions"  Content="Alone" HorizontalAlignment="Center"  GroupName="companions"/>
-                        <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Center"  GroupName="companions"/>
-                        <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Center"  GroupName="companions"/>
-                        <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Center"  GroupName="companions"/>
-                    </StackPanel>
-                    </StackPanel>
                 </DataTemplate>
             </HubSection>
-        <HubSection x:Uid="HubSection3" Header="Stay" Width="361">
+            <HubSection x:Uid="HubSection3" Header="Stay" Width="361">
                 <DataTemplate>
                     <StackPanel Width="329" Height="526">
                         <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stay"/>
@@ -86,16 +79,17 @@
                             <TextBlock  Text="Tnx for data now you can use app. 
                                        We wish you happy travel." TextAlignment="Center"/>
                         </StackPanel>
-
+                        
                         <StackPanel>
                             <Button HorizontalAlignment="Center" x:Name="SubmitButton" Click="SubmitButton_Click_1"  Content="Start" Width="100" Height="40" />
                             <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,100,0,0" VerticalAlignment="Top" Source="Assets/car_emoji.png" Width="100"/>
                         </StackPanel>
-
+                        
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
         </Hub>
-        </ScrollViewer>
+
+
     </Grid>
 </Page>
