@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TuristFlow
 {
+    
     /// <summary> 
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -60,7 +61,8 @@ namespace TuristFlow
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    //Load state from previously suspended application
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
 
                 // Place the frame in the current Window
@@ -72,7 +74,8 @@ namespace TuristFlow
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(firstPage), e.Arguments);
+
+                rootFrame.Navigate(typeof(firstPage), e.Arguments);                     
             }
             // Ensure the current window is active
             Window.Current.Activate();

@@ -31,5 +31,10 @@ namespace TuristFlow
         {
             Frame.Navigate(typeof(firstPage));
         }
+
+        private void MapControl_MapHolding(Windows.UI.Xaml.Controls.Maps.MapControl sender, Windows.UI.Xaml.Controls.Maps.MapInputEventArgs args)
+        {
+
+        }
     }
 }
