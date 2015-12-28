@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,14 @@ namespace TuristFlow
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        //public ObservableCollection<LocationData> MappedLocations { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
+
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
