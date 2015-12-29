@@ -62,7 +62,8 @@ namespace TuristFlow
         }
         public static async void insertPerson(Person p)
         {
-                await MobileService.GetTable<Person>().InsertAsync(p);
+
+            await MobileService.GetTable<Person>().InsertAsync(p);
         }
 
 

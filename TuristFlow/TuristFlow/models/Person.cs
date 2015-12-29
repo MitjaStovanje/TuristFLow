@@ -8,7 +8,7 @@ namespace TuristFlow.models
 {
    public class Person
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string IDLocal { get; set; }
         public string Age { get; set; }
         public string group { get; set; }
