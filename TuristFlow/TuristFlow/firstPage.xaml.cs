@@ -15,6 +15,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using Windows.Networking.Connectivity;
 using System.Collections.Generic;
+using Microsoft.WindowsAzure.MobileServices;
 
 
 
@@ -29,6 +30,9 @@ namespace TuristFlow
     {
         Person p;
         SQLiteConnection conn;
+        public static MobileServiceClient MobileService =
+          new MobileServiceClient("https://turistflow.azure-mobile.net/",
+              "EnLxaBpIkCZMxDVNHHmIbnhnnXEXNa60");
         public firstPage()
         {
             this.InitializeComponent();
@@ -50,8 +54,15 @@ namespace TuristFlow
             if (p != null)
             {
                 conn.Insert(p);
+                insertPerson(p);
             }
+            // Use this constructor instead after publishing to the cloud
+           
             this.Frame.Navigate(typeof(MainPage));
+        }
+        public static async void insertPerson(Person p)
+        {
+                await MobileService.GetTable<Person>().InsertAsync(p);
         }
 
 
@@ -101,7 +112,7 @@ namespace TuristFlow
         private void budget1_Checked(object sender, RoutedEventArgs e)
         {
             var budget = sender as RadioButton;
-            p.Budget = budget.ToString().Equals("limited");
+            p.Budget = budget.Content.Equals("Limited");
         }
 
         private void tblength_TextChanged_1(object sender, TextChangedEventArgs e)

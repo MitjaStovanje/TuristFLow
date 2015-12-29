@@ -35,10 +35,10 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/group_emoji.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0" >
-                                <RadioButton x:Name="companions"  Content="Alone" HorizontalAlignment="Center"  GroupName="companions"/>
-                                <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Center"  GroupName="companions"/>
-                                <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Center"  GroupName="companions"/>
-                                <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Center"  GroupName="companions"/>
+                                <RadioButton x:Name="companions"  Content="Alone" HorizontalAlignment="Center" Checked="companions_Checked" GroupName="companions"/>
+                                <RadioButton x:Name="companions1" Content="Family" HorizontalAlignment="Center" Checked="companions_Checked" GroupName="companions"/>
+                                <RadioButton x:Name="companions2" Content="Friends" HorizontalAlignment="Center" Checked="companions_Checked" GroupName="companions"/>
+                                <RadioButton x:Name="companions3" Content="Bussines" HorizontalAlignment="Center" Checked="companions_Checked" GroupName="companions"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -50,10 +50,10 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/house_emoji.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0">
-                                <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
-                                <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
-                                <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
-                                <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="stay"/>
+                                <RadioButton x:Name="stay" Content="Hotel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
+                                <RadioButton x:Name="stay1" Content="Hostel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
+                                <RadioButton x:Name="stay2" Content="Private" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
+                                <RadioButton x:Name="stay3" Content="None" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="stay_Checked" GroupName="stay"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -65,7 +65,7 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/time_emoji.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0">
-                                <TextBox x:Name="tblength" InputScope="Digits"  HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                                <TextBox x:Name="tblength" InputScope="Digits" TextChanged="tblength_TextChanged_1" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
                             </StackPanel>
 
                         </StackPanel>
@@ -78,8 +78,8 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/budget_emoji.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0">
-                                <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="budget"/>
-                                <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Center" VerticalAlignment="Stretch" GroupName="budget"/>
+                                <RadioButton x:Name="budget" Content="Limited" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="budget1_Checked"  GroupName="budget"/>
+                                <RadioButton x:Name="budget1" Content="Unlimited" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="budget1_Checked" GroupName="budget"/>
                             </StackPanel>
 
                         </StackPanel>
@@ -92,10 +92,10 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/car_emoji.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0">
-                                <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
-                                <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
-                                <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
-                                <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                                <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
