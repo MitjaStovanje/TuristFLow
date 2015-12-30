@@ -33,6 +33,8 @@ namespace TuristFlow
         public static MobileServiceClient MobileService =
           new MobileServiceClient("https://turistflow.azure-mobile.net/",
               "EnLxaBpIkCZMxDVNHHmIbnhnnXEXNa60");
+       
+
         public firstPage()
         {
             this.InitializeComponent();
@@ -55,22 +57,10 @@ namespace TuristFlow
             {
                 conn.Insert(p);
                 insertPerson(p);
-                AddLactiion();
-                
             }
             // Use this constructor instead after publishing to the cloud
-           
-            this.Frame.Navigate(typeof(MainPage));
-        }
-        private static async void AddLactiion()
-        {
-            Location l = new Location();
-            l.LAT = "46.051171";
-            l.LOT = "14.506234";
-            l.Name = "Triple Bridge";
-            await MobileService.GetTable<Location>().InsertAsync(l);
-           
 
+            this.Frame.Navigate(typeof(MainPage));
         }
         public static async void insertPerson(Person p)
         {

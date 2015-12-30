@@ -85,10 +85,8 @@ namespace TuristFlow
         }
         private async void ShowRouteOnMap(double startLatitude, double startLongitude, double finalLatitude, double finalLongitude)
         {
-            // Start at Microsoft in Redmond, Washington.
             BasicGeoposition startLocation = new BasicGeoposition() { Latitude = startLatitude, Longitude = startLongitude };
 
-            // End at the city of Seattle, Washington.
             BasicGeoposition endLocation = new BasicGeoposition() { Latitude = finalLatitude, Longitude = finalLongitude };
 
 
@@ -101,7 +99,7 @@ namespace TuristFlow
             route = "Minutes = " + routeResult.Route.EstimatedDuration.TotalMinutes.ToString()
                 + "  Kilometers = " + (routeResult.Route.LengthInMeters / 1000).ToString();
 
-            //Content.Text = route;
+            Content.Text = route;
             
 
             if (routeResult.Status == MapRouteFinderStatus.Success)
@@ -126,16 +124,16 @@ namespace TuristFlow
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             this.ShowRouteOnMap(46.051468, 14.506031, 46.036905, 14.488618);
+            places();
         }
 
-        /*public void places()
+        public void places()
         {
             GooglePlacesAPI gpa = new GooglePlacesAPI("46.036905", "14.488618", 500);
             gpa.getDirections();
-            var bb = gpa.gp.results.Length;
-            Content.Text = bb +"" ;
+          
 
 
-        }*/
+        }
     }
 }
