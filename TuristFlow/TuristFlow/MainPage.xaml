@@ -19,13 +19,11 @@
                              MapServiceToken="LKPRqZnG9CcbTJY27XAP~5SfRqRKNO8PO1Ms-xSSo7A~Ak2Dh3SKjEA5HAXw48ET241QJcDKJNn_MZO-7eO3NdmA2f00xqSZZIacmmN3agD1" />
             
             <RelativePanel MinHeight="50" MaxHeight="50" Grid.Row="0">
-                <TextBox x:Name="tb"  Width="100" Height="30" TextWrapping="Wrap" RelativePanel.AlignLeftWithPanel="True" Margin="10,-161,-10,161" Foreground="#7F000000" />
-                    <Button x:Name="Search" Width="60" Height="32"  RelativePanel.RightOf="tb" Background="White" Margin="10,-161,-10,161" Foreground="#7F000000">
+                <TextBox x:Name="tb"  Width="100" Height="30" TextWrapping="Wrap"  Text="Prešernov trg" RelativePanel.AlignLeftWithPanel="True" Margin="10,-161,-10,161" Foreground="#7F000000" />
+                    <Button x:Name="Search" Width="60" Height="32" Click="Search_Click"  RelativePanel.RightOf="tb" Background="White" Margin="10,-161,-10,161" Foreground="#7F000000">
                         <SymbolIcon Symbol="Find"/>
                     </Button>
             </RelativePanel>
-
-           
 
             <TextBlock x:Name="Content" Grid.Row="1" Margin="15" Height="auto" TextWrapping="Wrap" TextAlignment="Justify" Text="Lorem Ipsum je slepi tekst, ki se uporablja pri razvoju tipografij in pri pripravi za tisk. Lorem Ipsum je v uporabi že več kot petsto let saj je to kombinacijo znakov neznani tiskar združil v vzorčno knjigo že v začetku 16. stoletja. To besedilo pa ni zgolj preživelo pet stoletij, temveč se je z malenkostnimi spremembami uspešno uveljavilo tudi v elektronskem namiznem založništvu. Na priljubljenosti je Lorem Ipsum pridobil v sedemdesetih letih prejšnjega stoletja, ko so na trg lansirali Letraset folije z Lorem Ipsum odstavki. V zadnjem času se Lorem Ipsum pojavlja tudi v priljubljenih programih za namizno založništvo kot je na primer Aldus PageMaker."/>
 

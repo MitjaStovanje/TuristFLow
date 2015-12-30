@@ -29,15 +29,14 @@ namespace TuristFlow
     {
         string route;
 
-
-
         public MainPage()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
             this.StartTimer(5, async () => await this.GetCurentLocation());
-            this.ShowRouteOnMap();
+            
+            //this.places();
         }
 
         private async Task GetCurentLocation()
@@ -84,13 +83,13 @@ namespace TuristFlow
         {
             await GetCurentLocation();
         }
-        private async void ShowRouteOnMap()
+        private async void ShowRouteOnMap(double startLatitude, double startLongitude, double finalLatitude, double finalLongitude)
         {
             // Start at Microsoft in Redmond, Washington.
-            BasicGeoposition startLocation = new BasicGeoposition() { Latitude = 46.051468, Longitude = 14.506031 };
+            BasicGeoposition startLocation = new BasicGeoposition() { Latitude = startLatitude, Longitude = startLongitude };
 
             // End at the city of Seattle, Washington.
-            BasicGeoposition endLocation = new BasicGeoposition() { Latitude = 46.036905, Longitude = 14.488618 };
+            BasicGeoposition endLocation = new BasicGeoposition() { Latitude = finalLatitude, Longitude = finalLongitude };
 
 
             // Get the route between the points.
@@ -102,7 +101,7 @@ namespace TuristFlow
             route = "Minutes = " + routeResult.Route.EstimatedDuration.TotalMinutes.ToString()
                 + "  Kilometers = " + (routeResult.Route.LengthInMeters / 1000).ToString();
 
-            Content.Text = route;
+            //Content.Text = route;
             
 
             if (routeResult.Status == MapRouteFinderStatus.Success)
@@ -123,5 +122,20 @@ namespace TuristFlow
                       Windows.UI.Xaml.Controls.Maps.MapAnimationKind.None);
             }
         }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowRouteOnMap(46.051468, 14.506031, 46.036905, 14.488618);
+        }
+
+        /*public void places()
+        {
+            GooglePlacesAPI gpa = new GooglePlacesAPI("46.036905", "14.488618", 500);
+            gpa.getDirections();
+            var bb = gpa.gp.results.Length;
+            Content.Text = bb +"" ;
+
+
+        }*/
     }
 }

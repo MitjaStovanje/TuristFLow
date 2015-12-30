@@ -99,9 +99,11 @@
     <Compile Include="firstPage.xaml.cs">
       <DependentUpon>firstPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GooglePlacesAPI.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="models\GooglePlaces.cs" />
     <Compile Include="models\Location.cs" />
     <Compile Include="models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
