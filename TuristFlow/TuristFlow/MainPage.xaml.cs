@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Networking.Connectivity;
 using Windows.Services.Maps;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -34,7 +35,7 @@ namespace TuristFlow
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            this.StartTimer(5, async () => await this.GetCurentLocation());
+            this.StartTimer(1, async () => await this.GetCurentLocation());
             
             //this.places();
         }
@@ -132,8 +133,12 @@ namespace TuristFlow
             GooglePlacesAPI gpa = new GooglePlacesAPI("46.036905", "14.488618", 500);
             gpa.getDirections();
           
-
-
+        }
+        public static bool IsInternet()
+        {
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+            return internet;
         }
     }
 }
