@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TuristFlow.models
 {
-    public class Location { 
+    public class Location {
 
-         public string ID { get; set; }
-         public  string LAT { get; set; }
+        public string ID { get; set; }
+        public  string LAT { get; set; }
          public  string LOT { get; set; }
          public string City { get; set; }
          public string Types { get; set; }

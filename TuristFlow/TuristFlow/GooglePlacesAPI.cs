@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TuristFlow.models;
@@ -58,10 +59,11 @@ namespace TuristFlow
         public async void getDirections()
         {
             string tmp = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + this.latitude + "," + this.longitude + "&radius=" + this.radius + "&types=" + this.types + "&name=" + this.name + "&key=AIzaSyBhNJOVs683SBhnuLz0CQ0iz_HzYZ0gohM";
-            HttpClient http = new System.Net.Http.HttpClient();
-            string result = await http.GetStringAsync(tmp);
-            Task.Delay(TimeSpan.FromSeconds(10));
-            gp = (GooglePlaces)JsonConvert.DeserializeObject<GooglePlaces>(result);
+           
+            HttpClient client = new HttpClient(new HttpClientHandler() { UseDefaultCredentials = true });
+            HttpResponseMessage response = client.GetAsync(tmp).Result;
+            var places = response.Content.ReadAsStringAsync();
+            gp = (GooglePlaces)JsonConvert.DeserializeObject<GooglePlaces>(places.Result);
         }
     }
 }
