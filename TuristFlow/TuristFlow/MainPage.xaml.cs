@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using TuristFlow.models;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -29,7 +31,6 @@ namespace TuristFlow
     public sealed partial class MainPage : Page
     {
         string route;
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -40,7 +41,7 @@ namespace TuristFlow
             //this.places();
         }
 
-        private async Task GetCurentLocation()
+        private async Task<Geoposition> location()
         {
             Geoposition geoposition = null;
             Geolocator geolocator = new Geolocator();
@@ -54,6 +55,13 @@ namespace TuristFlow
                 // Handle errors like unauthorized access to location
                 // services or no Internet access.
             }
+            return geoposition;
+        }
+
+        private async Task GetCurentLocation()
+        {
+            Geoposition geoposition = await location();
+            
 
             InputMap.Center = geoposition.Coordinate.Point;
             InputMap.ZoomLevel = 16;
@@ -68,8 +76,10 @@ namespace TuristFlow
             MapControl.SetLocation(fence, geoposition.Coordinate.Point);
             MapControl.SetNormalizedAnchorPoint(fence, new Point(.5, .5));
             InputMap.Children.Add(fence);
-
-            //Content.Text = geoposition.Coordinate.Point.Position.Latitude + "Latitude..........." + geoposition.Coordinate.Point.Position.Longitude + "Lonitude";
+            ShowRouteOnMap();
+            places(); 
+            
+           
         }
 
         private void StartTimer(int v, Action action)
@@ -84,11 +94,17 @@ namespace TuristFlow
         {
             await GetCurentLocation();
         }
-        private async void ShowRouteOnMap(double startLatitude, double startLongitude, double finalLatitude, double finalLongitude)
-        {
-            BasicGeoposition startLocation = new BasicGeoposition() { Latitude = startLatitude, Longitude = startLongitude };
 
-            BasicGeoposition endLocation = new BasicGeoposition() { Latitude = finalLatitude, Longitude = finalLongitude };
+        private async void ShowRouteOnMap()
+        {
+            Geoposition current = await location();
+            Location l = new Location();
+            l.LAT = current.Coordinate.Latitude.ToString();
+            l.LOT = current.Coordinate.Longitude.ToString();
+            Location destination = await GetShortestLocation(l);
+            BasicGeoposition startLocation = new BasicGeoposition() { Latitude = Convert.ToDouble(l.LAT), Longitude = Convert.ToDouble(l.LOT) };
+
+            BasicGeoposition endLocation = new BasicGeoposition() { Latitude = Convert.ToDouble(destination.LAT), Longitude = Convert.ToDouble(destination.LOT)};
 
 
             // Get the route between the points.
@@ -122,18 +138,68 @@ namespace TuristFlow
             }
         }
 
+        private async Task<Location> GetShortestLocation(Location start)
+        {
+            Location t = new Location();
+            IMobileServiceTable<Location> table = App.MobileService.GetTable<Location>();
+            List<Location> res = await table.ToListAsync();
+            t= await CalculateDistance(start, res);
+            return t;
+        }
+
+        private async Task<Location> CalculateDistance(Location l,List<Location> res)
+        {
+            Geoposition current = await location();
+            Location destination = new Location();
+            var min = DistanceHeveraste(l,res.First(),"Kilometers");
+            foreach (Location point in res.Skip(1)) {
+                                                    
+                var distance = DistanceHeveraste(l, point, "Kilometers");
+                if (distance < min) {
+                    min = distance;
+                    destination.LAT = point.LAT;
+                    destination.LOT = point.LOT;
+                    destination.Name = point.Name;
+                    
+                }
+            }
+            return destination;
+
+        }
+
+
+
+        public double DistanceHeveraste(Location pos1, Location pos2, string type)
+        {
+            double R = (type == "Miles") ? 3960 : 6371;
+            double dLat = this.toRadian(Convert.ToDouble(pos2.LAT) - Convert.ToDouble(pos1.LAT));
+            double dLon = this.toRadian(Convert.ToDouble(pos2.LOT) - Convert.ToDouble(pos1.LOT));
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                Math.Cos(this.toRadian(Convert.ToDouble(pos1.LAT))) * Math.Cos(this.toRadian(Convert.ToDouble(pos2.LAT))) *
+                Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+            double c = 2 * Math.Asin(Math.Min(1, Math.Sqrt(a)));
+            double d = R * c;
+            return d;
+        }
+    
+
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowRouteOnMap(46.051468, 14.506031, 46.036905, 14.488618);
-            places();
+
+            ShowRouteOnMap();    
+        }
+        private double toRadian(double val)
+        {
+            return (Math.PI / 180) * val;
         }
 
         public void places()
         {
-            GooglePlacesAPI gpa = new GooglePlacesAPI("46.036905", "14.488618", 500);
+            GooglePlacesAPI gpa = new GooglePlacesAPI("46.047924", "14.506234");
             gpa.getDirections();
           
         }
+        //check internet
         public static bool IsInternet()
         {
             ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();

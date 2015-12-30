@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Geolocation;
+using Microsoft.WindowsAzure.MobileServices;
+using SQLite.Net;
 
 namespace TuristFlow
 {
@@ -24,8 +26,12 @@ namespace TuristFlow
     /// </summary>
     sealed partial class App : Application
     {
-
-        
+        public static MobileServiceClient MobileService =
+        new MobileServiceClient("https://turistflow.azure-mobile.net/",
+            "EnLxaBpIkCZMxDVNHHmIbnhnnXEXNa60");
+        public static SQLiteConnection conn;
+        string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.TursiFlow");
+       
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -34,6 +40,7 @@ namespace TuristFlow
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            conn = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
         }
 
         /// <summary>
@@ -52,7 +59,8 @@ namespace TuristFlow
 #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
-
+            var info = conn.GetTableInfo("Person");
+           
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (rootFrame == null)
@@ -79,6 +87,14 @@ namespace TuristFlow
                 // parameter
 
                 rootFrame.Navigate(typeof(firstPage), e.Arguments);                     
+            }
+            if (info == null)
+            {
+                rootFrame.Navigate(typeof(firstPage));
+            }
+            else
+            {
+                rootFrame.Navigate(typeof(MainPage));
             }
             // Ensure the current window is active
             Window.Current.Activate();

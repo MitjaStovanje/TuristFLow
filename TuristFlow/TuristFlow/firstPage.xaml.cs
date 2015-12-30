@@ -29,12 +29,8 @@ namespace TuristFlow
     public sealed partial class firstPage : Page
     {
         Person p;
-        SQLiteConnection conn;
-        public static MobileServiceClient MobileService =
-          new MobileServiceClient("https://turistflow.azure-mobile.net/",
-              "EnLxaBpIkCZMxDVNHHmIbnhnnXEXNa60");
-       
-
+ 
+      
         public firstPage()
         {
             this.InitializeComponent();
@@ -55,7 +51,7 @@ namespace TuristFlow
             LocalDBConnection();
             if (p != null)
             {
-                conn.Insert(p);
+                App.conn.Insert(p);
                 insertPerson(p);
             }
             // Use this constructor instead after publishing to the cloud
@@ -65,16 +61,15 @@ namespace TuristFlow
         public static async void insertPerson(Person p)
         {
 
-            await MobileService.GetTable<Person>().InsertAsync(p);
+            await App.MobileService.GetTable<Person>().InsertAsync(p);
         }
 
 
         //localDatabase
         private void LocalDBConnection()
         {
-            string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.TursiFlow");
-            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-            conn.CreateTable<Person>();
+           
+            App.conn.CreateTable<Person>();
         }
 
 
