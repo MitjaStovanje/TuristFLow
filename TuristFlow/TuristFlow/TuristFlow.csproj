@@ -103,6 +103,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="models\FavoritePersonLocation.cs" />
     <Compile Include="models\GooglePlaces.cs" />
     <Compile Include="models\Location.cs" />
     <Compile Include="models\Person.cs" />

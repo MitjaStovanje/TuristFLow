@@ -58,6 +58,7 @@ namespace TuristFlow
 
             this.Frame.Navigate(typeof(MainPage));
         }
+
         public static async void insertPerson(Person p)
         {
 

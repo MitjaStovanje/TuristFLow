@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using System.Threading.Tasks;
 using TuristFlow.models;
 using Windows.Devices.Geolocation;
@@ -12,6 +13,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Networking.Connectivity;
 using Windows.Services.Maps;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -31,14 +33,40 @@ namespace TuristFlow
     public sealed partial class MainPage : Page
     {
         string route;
+        FavoritePersonLocation locat;
+        Person localPerson;
         public MainPage()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
-
             this.StartTimer(1, async () => await this.GetCurentLocation());
-            
+            App.conn.CreateTable<FavoritePersonLocation>();
+            locat = new FavoritePersonLocation();
+            localPerson = GetPerson();
+            Lcation();
             //this.places();
+        }
+
+        private void PointerPressedOverride(MapControl sender, MapElementClickEventArgs args)
+        {
+           Content.Text= args.Location.ToString();
+        }
+
+        private Person GetPerson() {
+            Person query = App.conn.Table<Person>().First();
+            return query;
+        }
+
+        private void Lcation()
+        {
+            var query = App.conn.Table<FavoritePersonLocation>().Where(x => x.Town != "");
+            String priljubljene = "";
+            foreach (FavoritePersonLocation l in query) {
+                priljubljene += l.Addres + " " + l.Town;
+            }
+            Content.Text = "Priljubljeni kraji";
+            Content.Text +="\n"+priljubljene;
+
         }
 
         private async Task<Geoposition> location()
@@ -60,26 +88,31 @@ namespace TuristFlow
 
         private async Task GetCurentLocation()
         {
-            Geoposition geoposition = await location();
-            
+            if (App.IsInternet())
+            {
+                Geoposition geoposition = await location();
 
-            InputMap.Center = geoposition.Coordinate.Point;
-            InputMap.ZoomLevel = 16;
-            InputMap.TrafficFlowVisible = true;
 
-            Windows.UI.Xaml.Shapes.Ellipse fence =
-            new Windows.UI.Xaml.Shapes.Ellipse();
-            fence.Width = 10;
-            fence.Height = 10;
-            fence.Stroke = new SolidColorBrush(Windows.UI.Colors.DarkOrange);
-            fence.StrokeThickness = 2;
-            MapControl.SetLocation(fence, geoposition.Coordinate.Point);
-            MapControl.SetNormalizedAnchorPoint(fence, new Point(.5, .5));
-            InputMap.Children.Add(fence);
-            ShowRouteOnMap();
-            places(); 
-            
-           
+                InputMap.Center = geoposition.Coordinate.Point;
+                InputMap.ZoomLevel = 16;
+                InputMap.TrafficFlowVisible = true;
+
+                Windows.UI.Xaml.Shapes.Ellipse fence =
+                new Windows.UI.Xaml.Shapes.Ellipse();
+                fence.Width = 10;
+                fence.Height = 10;
+                fence.Stroke = new SolidColorBrush(Windows.UI.Colors.DarkOrange);
+                fence.StrokeThickness = 2;
+                MapControl.SetLocation(fence, geoposition.Coordinate.Point);
+                MapControl.SetNormalizedAnchorPoint(fence, new Point(.5, .5));
+                InputMap.Children.Add(fence);
+                ShowRouteOnMap();
+                places();
+            }
+            else {
+                MessageDialog msgDialog = new MessageDialog("Preverite povezavo", "Preverite povezavo");
+
+            }
         }
 
         private void StartTimer(int v, Action action)
@@ -167,8 +200,6 @@ namespace TuristFlow
 
         }
 
-
-
         public double DistanceHeveraste(Location pos1, Location pos2, string type)
         {
             double R = (type == "Miles") ? 3960 : 6371;
@@ -181,30 +212,54 @@ namespace TuristFlow
             double d = R * c;
             return d;
         }
-    
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
 
             ShowRouteOnMap();    
         }
+
         private double toRadian(double val)
         {
             return (Math.PI / 180) * val;
         }
 
+        /// <summary>
+        /// Google places location
+        /// </summary>
         public void places()
         {
             GooglePlacesAPI gpa = new GooglePlacesAPI("46.047924", "14.506234");
             gpa.getDirections();
           
         }
-        //check internet
-        public static bool IsInternet()
+  
+        private async void InputMap_MapTapped(MapControl sender, MapInputEventArgs args)
         {
-            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
-            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
-            return internet;
+            buttonAdd.IsEnabled = true;
+            Geopoint pointToReverseGeocode = new Geopoint(args.Location.Position);
+            // Reverse geocode the specified geographic location.  
+            MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
+            var resultText = new StringBuilder();
+            if (result.Status == MapLocationFinderStatus.Success)
+            {
+                locat.IDPerson = localPerson.IDLocal;
+                locat.Addres = result.Locations[0].Address.District;
+                locat.Town = result.Locations[0].Address.Town;
+                locat.Longitude = result.Locations[0].Point.Position.Longitude;
+                locat.Latitude = result.Locations[0].Point.Position.Latitude;
+                resultText.Append(locat.Addres + " " + locat.Town);
+            }
+
+            Content.Text=resultText.ToString();
+
         }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            App.conn.Insert(locat);
+        }
+
+       
     }
 }

@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Geolocation;
 using Microsoft.WindowsAzure.MobileServices;
 using SQLite.Net;
+using Windows.Networking.Connectivity;
+using Windows.UI.Popups;
 
 namespace TuristFlow
 {
@@ -88,16 +90,32 @@ namespace TuristFlow
 
                 rootFrame.Navigate(typeof(firstPage), e.Arguments);                     
             }
-            if (info == null)
+            if (info.Count == 0)
             {
-                rootFrame.Navigate(typeof(firstPage));
+                if (IsInternet())
+                {
+                    rootFrame.Navigate(typeof(firstPage));
+                }
+                else {
+                    MessageDialog msgDialog = new MessageDialog("Preverite povezavo", "Preverite povezavo");
+                }
             }
-            else
+            else if (IsInternet())
             {
                 rootFrame.Navigate(typeof(MainPage));
             }
+            else {
+                MessageDialog msgDialog = new MessageDialog("Preverite povezavo", "Preverite povezavo");
+            }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        public static bool IsInternet()
+        {
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+            return internet;
         }
 
         /// <summary>
