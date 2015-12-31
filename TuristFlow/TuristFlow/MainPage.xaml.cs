@@ -43,6 +43,7 @@ namespace TuristFlow
             App.conn.CreateTable<FavoritePersonLocation>();
             locat = new FavoritePersonLocation();
             localPerson = GetPerson();
+            // tikaj se izpišejo priljubljeni 
             Lcation();
             //this.places();
         }
@@ -64,6 +65,7 @@ namespace TuristFlow
             foreach (FavoritePersonLocation l in query) {
                 priljubljene += l.Addres + " " + l.Town;
             }
+            // Nov textarea
             Content.Text = "Priljubljeni kraji";
             Content.Text +="\n"+priljubljene;
 
