@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuristFlow", "TuristFlow\TuristFlow.csproj", "{9164C543-A458-4D81-BFCB-C0A27F69024E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3F458E2-0A0E-4DA4-A1AF-8D90299B4544}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

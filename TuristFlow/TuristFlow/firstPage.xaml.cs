@@ -47,15 +47,21 @@ namespace TuristFlow
         // saveData
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
         {
+          
             p.IDLocal = RandomString(10);
             LocalDBConnection();
             if (p != null)
-            {
+            { 
+                if (App.IsInternet())
+                {
+                    insertPerson(p);
+                }
+                else {
+                    new ToastHelper().ShowToastWithTitleAndMessage("Napaa","Preverite povezavo");
+                }
                 App.conn.Insert(p);
-                insertPerson(p);
-            }
-            // Use this constructor instead after publishing to the cloud
 
+            }
             this.Frame.Navigate(typeof(MainPage));
         }
 

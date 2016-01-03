@@ -11,7 +11,7 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="500"/>
+                <RowDefinition Height="550"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -24,9 +24,13 @@
                     <SymbolIcon Symbol="Find"/>
                 </Button>
             </RelativePanel>
-            <TextBlock x:Name="Content" Grid.Row="1" Margin="15" Height="300" TextWrapping="Wrap" TextAlignment="Justify"></TextBlock>
+            <TextBlock x:Name="Content" Grid.Row="1" Margin="15,15,143,84" TextWrapping="Wrap" TextAlignment="Justify"/>
             <Button x:Name="buttonAdd" Click="buttonAdd_Click" IsEnabled="False"  RelativePanel.RightOf="Search"  Background="White" HorizontalAlignment="Left" Margin="177,65,0,0" VerticalAlignment="Top" Foreground="#7F000000" >
                 <SymbolIcon Symbol="Add"/>
+            </Button>
+            <TextBlock x:Name="Favorite" HorizontalAlignment="Left" Margin="15,61,0,-97" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="335"/>
+            <Button x:Name="refresh"  Click="refresh_Click" HorizontalAlignment="Left" Visibility="Collapsed" Margin="350,56,0,0" Grid.Row="1" VerticalAlignment="Top">
+                <SymbolIcon Symbol="Refresh"/>
             </Button>
         </Grid>
     </ScrollViewer>

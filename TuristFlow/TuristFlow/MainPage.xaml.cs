@@ -13,6 +13,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Networking.Connectivity;
 using Windows.Services.Maps;
+using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -43,9 +44,7 @@ namespace TuristFlow
             App.conn.CreateTable<FavoritePersonLocation>();
             locat = new FavoritePersonLocation();
             localPerson = GetPerson();
-            // tikaj se izpišejo priljubljeni 
             Lcation();
-            //this.places();
         }
 
         private void PointerPressedOverride(MapControl sender, MapElementClickEventArgs args)
@@ -63,11 +62,11 @@ namespace TuristFlow
             var query = App.conn.Table<FavoritePersonLocation>().Where(x => x.Town != "");
             String priljubljene = "";
             foreach (FavoritePersonLocation l in query) {
-                priljubljene += l.Addres + " " + l.Town;
+                priljubljene += l.Addres + " " + l.Town+",";
             }
             // Nov textarea
-            Content.Text = "Priljubljeni kraji";
-            Content.Text +="\n"+priljubljene;
+            Favorite.Text = "Priljubljeni kraji"+"\n";
+            Favorite.Text += priljubljene;
 
         }
 
@@ -109,11 +108,11 @@ namespace TuristFlow
                 MapControl.SetNormalizedAnchorPoint(fence, new Point(.5, .5));
                 InputMap.Children.Add(fence);
                 ShowRouteOnMap();
-                places();
+                
             }
             else {
-                MessageDialog msgDialog = new MessageDialog("Preverite povezavo", "Preverite povezavo");
-
+                new ToastHelper().ShowToastWithTitleAndMessage("Povezava", "Prsimo prverite poezavo.");
+                refresh.Visibility = Visibility.Visible;
             }
         }
 
@@ -171,6 +170,24 @@ namespace TuristFlow
                       null,
                       Windows.UI.Xaml.Controls.Maps.MapAnimationKind.None);
             }
+            places(endLocation);
+        }
+
+        private void places(BasicGeoposition endLocation)
+        {
+            GooglePlacesAPI gpa = new GooglePlacesAPI(endLocation.Latitude.ToString(), endLocation.Longitude.ToString());
+            var test = gpa.getDirections();
+         
+            var tocka = test.Result.results;
+            foreach (var t in tocka)
+            {
+                MapIcon MapIcon1 = new MapIcon();
+                MapIcon1.Location = new Geopoint(new BasicGeoposition() { Latitude = Convert.ToDouble(t.geometry.location.lat), Longitude = Convert.ToDouble(t.geometry.location.lng) });
+                MapIcon1.Title = t.name;
+                MapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri(t.icon));
+                InputMap.MapElements.Add(MapIcon1);
+            }
+
         }
 
         private async Task<Location> GetShortestLocation(Location start)
@@ -226,15 +243,7 @@ namespace TuristFlow
             return (Math.PI / 180) * val;
         }
 
-        /// <summary>
-        /// Google places location
-        /// </summary>
-        public void places()
-        {
-            GooglePlacesAPI gpa = new GooglePlacesAPI("46.047924", "14.506234");
-            gpa.getDirections();
-          
-        }
+       
   
         private async void InputMap_MapTapped(MapControl sender, MapInputEventArgs args)
         {
@@ -250,18 +259,21 @@ namespace TuristFlow
                 locat.Town = result.Locations[0].Address.Town;
                 locat.Longitude = result.Locations[0].Point.Position.Longitude;
                 locat.Latitude = result.Locations[0].Point.Position.Latitude;
-                resultText.Append(locat.Addres + " " + locat.Town);
+                resultText.Append(locat.Addres + "," + locat.Town+"\n");
             }
-
-            Content.Text=resultText.ToString();
 
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
+            Favorite.Text += locat.Addres + " " + locat.Town;
             App.conn.Insert(locat);
         }
 
-       
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            GetCurentLocation();
+            refresh.Visibility = Visibility.Collapsed;
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace TuristFlow
         {
             this.latitude = latitude;
             this.longitude = longitude;
-            
+            this.radius = 500;
             this.name = "";
             this.types = "";
         }
@@ -56,7 +56,7 @@ namespace TuristFlow
         }
 
 
-        public async void getDirections()
+        public async Task<GooglePlaces> getDirections()
         {
             string tmp = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + this.latitude + "," + this.longitude + "&radius=" + this.radius + "&types=" + this.types + "&name=" + this.name + "&key=AIzaSyBhNJOVs683SBhnuLz0CQ0iz_HzYZ0gohM";
            
@@ -64,6 +64,7 @@ namespace TuristFlow
             HttpResponseMessage response = client.GetAsync(tmp).Result;
             var places = response.Content.ReadAsStringAsync();
             gp = (GooglePlaces)JsonConvert.DeserializeObject<GooglePlaces>(places.Result);
+            return gp;
         }
     }
 }

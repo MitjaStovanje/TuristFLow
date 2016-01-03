@@ -92,21 +92,13 @@ namespace TuristFlow
             }
             if (info.Count == 0)
             {
-                if (IsInternet())
-                {
-                    rootFrame.Navigate(typeof(firstPage));
-                }
-                else {
-                    MessageDialog msgDialog = new MessageDialog("Preverite povezavo", "Preverite povezavo");
-                }
-            }
-            else if (IsInternet())
-            {
-                rootFrame.Navigate(typeof(MainPage));
+                rootFrame.Navigate(typeof(firstPage));
+
             }
             else {
-                MessageDialog msgDialog = new MessageDialog("Preverite povezavo", "Preverite povezavo");
+                rootFrame.Navigate(typeof(MainPage));
             }
+            
             // Ensure the current window is active
             Window.Current.Activate();
         }

@@ -107,7 +107,7 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/first_page.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0">
-                                <Button HorizontalAlignment="Center" x:Name="SubmitButton" Click="SubmitButton_Click_1"  Content="Start" Width="100" Height="40" />
+                                <Button HorizontalAlignment="Center" x:Name="SubmitButton"  Click="SubmitButton_Click_1"  Content="Start" Width="100" Height="40" />
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
