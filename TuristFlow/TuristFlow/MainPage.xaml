@@ -11,7 +11,7 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="550"/>
+                <RowDefinition Height="500"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 

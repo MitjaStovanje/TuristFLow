@@ -23,7 +23,7 @@ namespace TuristFlow
         {
             this.latitude = latitude;
             this.longitude = longitude;
-            this.radius = 500;
+            this.radius = 100;
             this.name = "";
             this.types = "";
         }
