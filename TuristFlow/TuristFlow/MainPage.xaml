@@ -11,25 +11,26 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="500"/>
+                <RowDefinition Height="247.69"/>
+                <RowDefinition Height="252.31"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Maps:MapControl x:Name="InputMap" Grid.Row="0" MapTapped="InputMap_MapTapped"
-                             MapServiceToken="LKPRqZnG9CcbTJY27XAP~5SfRqRKNO8PO1Ms-xSSo7A~Ak2Dh3SKjEA5HAXw48ET241QJcDKJNn_MZO-7eO3NdmA2f00xqSZZIacmmN3agD1" />
+                             MapServiceToken="LKPRqZnG9CcbTJY27XAP~5SfRqRKNO8PO1Ms-xSSo7A~Ak2Dh3SKjEA5HAXw48ET241QJcDKJNn_MZO-7eO3NdmA2f00xqSZZIacmmN3agD1" Grid.RowSpan="2" />
 
-            <RelativePanel MinHeight="50" MaxHeight="50" Grid.Row="0">
+            <RelativePanel MinHeight="50" MaxHeight="50" Grid.Row="0" Grid.RowSpan="2">
                 <TextBox x:Name="tb"  Width="100" Height="30" TextWrapping="Wrap"  RelativePanel.AlignLeftWithPanel="True" Margin="10,-161,-10,161" Foreground="#7F000000" />
                 <Button x:Name="Search" Width="60" Height="32" Click="Search_Click"  RelativePanel.RightOf="tb" Background="White" Margin="15,-161,-15,161" Foreground="#7F000000">
                     <SymbolIcon Symbol="Find"/>
                 </Button>
             </RelativePanel>
-            <TextBlock x:Name="Content" Grid.Row="1" Margin="15,15,143,84" TextWrapping="Wrap" TextAlignment="Justify"/>
+            <TextBlock x:Name="Content" Grid.Row="2" Margin="15,15,143,84" TextWrapping="Wrap" TextAlignment="Justify"/>
             <Button x:Name="buttonAdd" Click="buttonAdd_Click" IsEnabled="False"  RelativePanel.RightOf="Search"  Background="White" HorizontalAlignment="Left" Margin="177,65,0,0" VerticalAlignment="Top" Foreground="#7F000000" >
                 <SymbolIcon Symbol="Add"/>
             </Button>
-            <TextBlock x:Name="Favorite" HorizontalAlignment="Left" Margin="15,61,0,-97" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="335"/>
-            <Button x:Name="refresh"  Click="refresh_Click" HorizontalAlignment="Left" Visibility="Collapsed" Margin="350,56,0,0" Grid.Row="1" VerticalAlignment="Top">
+            <TextBlock x:Name="Favorite" HorizontalAlignment="Left" Margin="15,61,0,-97" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="335"/>
+            <Button x:Name="refresh"  Click="refresh_Click" HorizontalAlignment="Left" Visibility="Collapsed" Margin="350,56,0,0" Grid.Row="2" VerticalAlignment="Top">
                 <SymbolIcon Symbol="Refresh"/>
             </Button>
         </Grid>
