@@ -32,6 +32,8 @@
             <Button x:Name="refresh"  Click="refresh_Click" HorizontalAlignment="Left" Visibility="Collapsed" Margin="350,56,0,0" Grid.Row="1" VerticalAlignment="Top">
                 <SymbolIcon Symbol="Refresh"/>
             </Button>
+            <ListView x:Name="coords" />
+
         </Grid>
     </ScrollViewer>
 </Page>

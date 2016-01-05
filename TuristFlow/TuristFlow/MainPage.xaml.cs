@@ -8,12 +8,14 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using TuristFlow.models;
+using Windows.ApplicationModel.ExtendedExecution;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Networking.Connectivity;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -36,15 +38,58 @@ namespace TuristFlow
         string route;
         FavoritePersonLocation locat;
         Person localPerson;
+        private Geolocator locator;
+        private ObservableCollection<string> coordinates = new ObservableCollection<string>();
         public MainPage()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
-            this.StartTimer(1, async () => await this.GetCurentLocation());
             App.conn.CreateTable<FavoritePersonLocation>();
             locat = new FavoritePersonLocation();
             localPerson = GetPerson();
             Lcation();
+            locator = new Geolocator();
+            locator.DesiredAccuracy = PositionAccuracy.High;
+            locator.DesiredAccuracyInMeters = 0;
+            locator.MovementThreshold = 0;
+            locator.PositionChanged += Locator_PositionChanged;
+            coords.ItemsSource = coordinates;
+        }
+
+        private void Locator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
+        {
+            var coord = args.Position;
+            string position = string.Format("{0},{1}",
+                args.Position.Coordinate.Point.Position.Latitude, //yeah it's this deep! Surprised smile
+                args.Position.Coordinate.Point.Position.Longitude);
+            var _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                coordinates.Insert(0, position);
+            });
+        }
+
+        private ExtendedExecutionSession session;
+
+        private async void StartLocationExtensionSession()
+        {
+            session = new ExtendedExecutionSession();
+            session.Description = "Location Tracker";
+            session.Reason = ExtendedExecutionReason.LocationTracking;
+            session.Revoked += ExtendedExecutionSession_Revoked;
+            var result = await session.RequestExtensionAsync();
+            if (result == ExtendedExecutionResult.Denied)
+            {
+                //TODO: handle denied
+            }
+        }
+
+        private void ExtendedExecutionSession_Revoked(object sender, ExtendedExecutionRevokedEventArgs args)
+        {
+            if (session != null)
+            {
+                session.Dispose();
+                session = null;
+            }
         }
 
         private void PointerPressedOverride(MapControl sender, MapElementClickEventArgs args)
