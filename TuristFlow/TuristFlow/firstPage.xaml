@@ -92,10 +92,10 @@
                                 <Image Name="Companions" Height="100" Margin="0,70,0,0" Source="Assets/car_emoji.png" />
                             </StackPanel>
                             <StackPanel Width="332" Margin="0,70,0,0">
-                                <RadioButton x:Name="Transport" Content="Car" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
-                                <RadioButton x:Name="Transport1" Content="Bus" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
-                                <RadioButton x:Name="Transport2" Content="Bike" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
-                                <RadioButton x:Name="Transport3" Content="Train" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport" Content="Car" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport1" Content="Bus" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport2" Content="Bike" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
+                                <CheckBox x:Name="Transport3" Content="Train" HorizontalAlignment="Center" VerticalAlignment="Stretch" Checked="Transport3_Checked"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

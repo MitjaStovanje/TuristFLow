@@ -243,6 +243,8 @@ namespace TuristFlow
             return (Math.PI / 180) * val;
         }
 
+       
+  
         private async void InputMap_MapTapped(MapControl sender, MapInputEventArgs args)
         {
             buttonAdd.IsEnabled = true;
@@ -272,11 +274,6 @@ namespace TuristFlow
         {
             GetCurentLocation();
             refresh.Visibility = Visibility.Collapsed;
-        }
-
-        private void delete_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
