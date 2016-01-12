@@ -1,0 +1,17 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TuristFlow"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="TuristFlow.Map"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Maps:MapControl x:Name="InputMap"  MapTapped="InputMap_MapTapped" MapServiceToken="LKPRqZnG9CcbTJY27XAP~5SfRqRKNO8PO1Ms-xSSo7A~Ak2Dh3SKjEA5HAXw48ET241QJcDKJNn_MZO-7eO3NdmA2f00xqSZZIacmmN3agD1" VerticalAlignment="Top" Height="630" />
+        <RelativePanel>
+            <Button x:Name="addFavorite" Width="50" Height="50" Visibility="Visible" FontFamily="Segoe MDL2 Assets" FontSize="26" Content="&#xE0A5;"  Background="#7FFFFFFF" RenderTransformOrigin="1.893,1.942" Margin="10,10,-10,-10" />
+        </RelativePanel>
+    </Grid>
+</Page>

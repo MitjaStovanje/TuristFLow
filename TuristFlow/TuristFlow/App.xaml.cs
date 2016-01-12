@@ -19,6 +19,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using SQLite.Net;
 using Windows.Networking.Connectivity;
 using Windows.UI.Popups;
+using TuristFlow.models;
 
 namespace TuristFlow
 {
@@ -28,6 +29,10 @@ namespace TuristFlow
     /// </summary>
     sealed partial class App : Application
     {
+        public static Geoposition geoposition;
+
+         
+
         public static MobileServiceClient MobileService =
         new MobileServiceClient("https://turistflow.azure-mobile.net/",
             "EnLxaBpIkCZMxDVNHHmIbnhnnXEXNa60");
@@ -52,13 +57,6 @@ namespace TuristFlow
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
 
             Frame rootFrame = Window.Current.Content as Frame;
             var info = conn.GetTableInfo("Person");
