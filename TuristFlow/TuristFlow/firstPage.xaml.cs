@@ -33,7 +33,7 @@ namespace TuristFlow
         public firstPage()
         {
             this.InitializeComponent();
-            p = new Person();
+            App.p = new Person();
         }
 
         public static bool CheckForInternetConnection()
@@ -92,31 +92,31 @@ namespace TuristFlow
         private void ageRB_Checked(object sender, RoutedEventArgs e)
         {
             var Ageradio = sender as RadioButton;
-            p.Age = Ageradio.Content.ToString();
+            App.p.Age = Ageradio.Content.ToString();
         }
 
         private void companions_Checked(object sender, RoutedEventArgs e)
         {
             var companions = sender as RadioButton;
-            p.group = companions.Content.ToString();
+            App.p.group = companions.Content.ToString();
         }
 
         private void stay_Checked(object sender, RoutedEventArgs e)
         {
             var stay = sender as RadioButton;
-            p.sleeping = stay.Content.ToString();
+            App.p.sleeping = stay.Content.ToString();
         }
 
         private void Transport3_Checked(object sender, RoutedEventArgs e)
         {
             var transport = sender as CheckBox;
-            p.Transport = transport.Content.ToString();
+            App.p.Transport = transport.Content.ToString();
         }
 
         private void budget1_Checked(object sender, RoutedEventArgs e)
         {
             var budget = sender as RadioButton;
-            p.Budget = budget.Content.Equals("Limited");
+            App.p.Budget = budget.Content.Equals("Limited");
         }
 
         private void tblength_TextChanged_1(object sender, TextChangedEventArgs e)
@@ -124,7 +124,7 @@ namespace TuristFlow
             var TravelTime = sender as TextBox;
             if (TravelTime.Text != null)
             {
-                p.TravelTime = Int32.Parse(TravelTime.Text.ToString());
+                App.p.TravelTime = Int32.Parse(TravelTime.Text.ToString());
             }
         }
 

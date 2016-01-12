@@ -69,9 +69,9 @@ namespace TuristFlow
             });
         }
 
-        private async void insertPosition(Person id, string position)
+        private async void insertCurentPosition(Person id, string position)
         {
-            await App.MobileService.GetTable<Person>().InsertAsync(p);
+            await App.MobileService.GetTable<Person>().InsertAsync(App.p);
         }
 
         private ExtendedExecutionSession session;

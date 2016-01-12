@@ -134,6 +134,15 @@
     <Content Include="Assets\first_page.png" />
     <Content Include="Assets\group_emoji.png" />
     <Content Include="Assets\house_emoji.png" />
+    <Content Include="Assets\icon125x125.png" />
+    <Content Include="Assets\icon150x150.scale-200.png" />
+    <Content Include="Assets\icon188x188.png" />
+    <Content Include="Assets\icon300x300.scale-100.png" />
+    <Content Include="Assets\icon600x600.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
     <Content Include="Assets\time_emoji.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
