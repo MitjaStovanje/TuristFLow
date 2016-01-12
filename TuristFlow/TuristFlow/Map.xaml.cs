@@ -65,7 +65,13 @@ namespace TuristFlow
             var _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 coordinates.Insert(0, position);
+
             });
+        }
+
+        private async void insertPosition(Person id, string position)
+        {
+            await App.MobileService.GetTable<Person>().InsertAsync(p);
         }
 
         private ExtendedExecutionSession session;
@@ -148,7 +154,7 @@ namespace TuristFlow
             MapControl.SetLocation(fence, App.geoposition.Coordinate.Point);
             MapControl.SetNormalizedAnchorPoint(fence, new Point(.5, .5));
             InputMap.Children.Add(fence);
-            ShowRouteOnMap();
+            //ShowRouteOnMap();
 
         }
 

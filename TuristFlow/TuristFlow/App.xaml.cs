@@ -30,6 +30,7 @@ namespace TuristFlow
     sealed partial class App : Application
     {
         public static Geoposition geoposition;
+        public static Person p;
 
          
 

@@ -28,8 +28,7 @@ namespace TuristFlow
     /// </summary>
     public sealed partial class firstPage : Page
     {
-        Person p;
- 
+        
       
         public firstPage()
         {
@@ -48,18 +47,18 @@ namespace TuristFlow
         private void SubmitButton_Click_1(object sender, RoutedEventArgs e)
         {
           
-            p.IDLocal = RandomString(10);
+            App.p.IDLocal = RandomString(10);
             LocalDBConnection();
-            if (p != null)
+            if (App.p != null)
             { 
                 if (App.IsInternet())
                 {
-                    insertPerson(p);
+                    insertPerson(App.p);
                 }
                 else {
-                    new ToastHelper().ShowToastWithTitleAndMessage("Napaa","Preverite povezavo");
+                    new ToastHelper().ShowToastWithTitleAndMessage("Napaka","Preverite povezavo");
                 }
-                App.conn.Insert(p);
+                App.conn.Insert(App.p);
 
             }
             this.Frame.Navigate(typeof(MainPage));
