@@ -107,9 +107,11 @@
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="models\FavoritePersonLocation.cs" />
+    <Compile Include="models\Flow.cs" />
     <Compile Include="models\GooglePlaces.cs" />
     <Compile Include="models\Location.cs" />
     <Compile Include="models\Person.cs" />
+    <Compile Include="models\PersonLocation.cs" />
     <Compile Include="Obiskano.xaml.cs">
       <DependentUpon>Obiskano.xaml</DependentUpon>
     </Compile>
@@ -134,15 +136,18 @@
     <Content Include="Assets\first_page.png" />
     <Content Include="Assets\group_emoji.png" />
     <Content Include="Assets\house_emoji.png" />
-    <Content Include="Assets\icon125x125.png" />
-    <Content Include="Assets\icon150x150.scale-200.png" />
-    <Content Include="Assets\icon188x188.png" />
+    <Content Include="Assets\icon1240x600.scale-200.png" />
     <Content Include="Assets\icon300x300.scale-100.png" />
-    <Content Include="Assets\icon600x600.png" />
+    <Content Include="Assets\icon310x150.png" />
+    <Content Include="Assets\icon310x310.png" />
+    <Content Include="Assets\icon44x44.png" />
+    <Content Include="Assets\icon50x50.png" />
+    <Content Include="Assets\icon71x71.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Square150x150Logo.scale-125.png" />
     <Content Include="Assets\Square150x150Logo.scale-150.png" />
     <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\time_emoji.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -150,7 +155,6 @@
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>

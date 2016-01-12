@@ -41,6 +41,7 @@ namespace TuristFlow
         private Geolocator locator;
         private ObservableCollection<string> coordinates = new ObservableCollection<string>();
         IEnumerable<Geopoint> wayPoints;
+        string positionChan;
         public Map()
         {
             this.InitializeComponent();
@@ -59,19 +60,27 @@ namespace TuristFlow
         private void Locator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
             var coord = args.Position;
-            string position = string.Format("{0},{1}",
+            positionChan = string.Format("{0},{1}",
                 args.Position.Coordinate.Point.Position.Latitude, //yeah it's this deep! Surprised smile
                 args.Position.Coordinate.Point.Position.Longitude);
             var _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                coordinates.Insert(0, position);
+                coordinates.Insert(0, positionChan);
 
             });
+           
+
         }
 
-        private async void insertCurentPosition(Person id, string position)
+        private async void insertCurentPosition()
         {
-            await App.MobileService.GetTable<Person>().InsertAsync(App.p);
+            PersonLocation person = new PersonLocation();
+            person.PersonLocationID = 1;
+            person.LAT = positionChan.Split(',')[0];
+            person.LOT = positionChan.Split(',')[1];
+            person.FlowFlowID = 1;
+            person.Flow = new Flow();
+            await App.MobileService.GetTable<PersonLocation>().InsertAsync(person);
         }
 
         private ExtendedExecutionSession session;
@@ -154,6 +163,7 @@ namespace TuristFlow
             MapControl.SetLocation(fence, App.geoposition.Coordinate.Point);
             MapControl.SetNormalizedAnchorPoint(fence, new Point(.5, .5));
             InputMap.Children.Add(fence);
+            insertCurentPosition();
             //ShowRouteOnMap();
 
         }
