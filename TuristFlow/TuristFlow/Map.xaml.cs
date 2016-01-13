@@ -37,7 +37,7 @@ namespace TuristFlow
     {
         string route;
         FavoritePersonLocation locat;
-        Person localPerson;
+        Person localPerson; 
         private Geolocator locator;
         private ObservableCollection<string> coordinates = new ObservableCollection<string>();
         IEnumerable<Geopoint> wayPoints;
@@ -74,13 +74,15 @@ namespace TuristFlow
 
         private async void insertCurentPosition()
         {
+            List<Person> t = new List<Person>();
             PersonLocation person = new PersonLocation();
-            person.PersonLocationID = 1;
+            person.PersonLocationID = 2;
             person.LAT = positionChan.Split(',')[0];
             person.LOT = positionChan.Split(',')[1];
-            person.FlowFlowID = 1;
-            person.Flow = new Flow();
-            await App.MobileService.GetTable<PersonLocation>().InsertAsync(person);
+            person.FlowFlowID = 2;
+            person.id = "dfferewrS";
+            await App.MobileService.GetTable<models.PersonLocation>().InsertAsync(person);
+
         }
 
         private ExtendedExecutionSession session;

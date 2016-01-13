@@ -32,7 +32,7 @@ namespace TuristFlow
         public static Geoposition geoposition;
         public static Person p;
 
-         
+
 
         public static MobileServiceClient MobileService =
         new MobileServiceClient("https://turistflow.azure-mobile.net/",

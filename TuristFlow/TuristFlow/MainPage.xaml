@@ -10,30 +10,55 @@
     <ScrollViewer>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="500"/>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+            <SplitView Name="MySplitView" 
+                       DisplayMode="CompactOverlay" 
+                       OpenPaneLength="200" 
+                       CompactPaneLength="56">
+                <SplitView.Pane>
+                    <ListBox SelectionMode="Single"
+                             Name="IconsListBox">
 
-            <Maps:MapControl x:Name="InputMap" Grid.Row="0" MapTapped="InputMap_MapTapped"
-                             MapServiceToken="LKPRqZnG9CcbTJY27XAP~5SfRqRKNO8PO1Ms-xSSo7A~Ak2Dh3SKjEA5HAXw48ET241QJcDKJNn_MZO-7eO3NdmA2f00xqSZZIacmmN3agD1" />
+                        <ListBoxItem Name="Open" DoubleTapped="TextBlock_DoubleTapped">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE700;" />
+                            </StackPanel>
+                        </ListBoxItem>
 
-            <RelativePanel MinHeight="50" MaxHeight="50" Grid.Row="0">
-                <TextBox x:Name="tb"  Width="100" Height="30" TextWrapping="Wrap"  RelativePanel.AlignLeftWithPanel="True" Margin="10,-161,-10,161" Foreground="#7F000000" />
-                <Button x:Name="Search" Width="60" Height="32" Click="Search_Click"  RelativePanel.RightOf="tb" Background="White" Margin="15,-161,-15,161" Foreground="#7F000000">
-                    <SymbolIcon Symbol="Find"/>
-                </Button>
-            </RelativePanel>
-            <TextBlock x:Name="Content" Grid.Row="1" Margin="15,15,143,84" TextWrapping="Wrap" TextAlignment="Justify"/>
-            <Button x:Name="buttonAdd" Click="buttonAdd_Click" IsEnabled="False"  RelativePanel.RightOf="Search"  Background="White" HorizontalAlignment="Left" Margin="177,65,0,0" VerticalAlignment="Top" Foreground="#7F000000" >
-                <SymbolIcon Symbol="Add"/>
-            </Button>
-            <TextBlock x:Name="Favorite" HorizontalAlignment="Left" Margin="15,61,0,-97" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="335"/>
-            <Button x:Name="refresh"  Click="refresh_Click" HorizontalAlignment="Left" Visibility="Collapsed" Margin="350,56,0,0" Grid.Row="1" VerticalAlignment="Top">
-                <SymbolIcon Symbol="Refresh"/>
-            </Button>
-            <ListView x:Name="coords" />
+                        <ListBoxItem Name="Priljubljeno" DoubleTapped="TextBlock_DoubleTapped_1">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE0A5;" />
+                                <TextBlock Text="Priljubljeno" FontSize="24" Margin="20,0,0,0" />
+                            </StackPanel>
+                        </ListBoxItem>
 
+                        <ListBoxItem Name="Obiskano" DoubleTapped="TextBlock_DoubleTapped_2">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE139;" />
+                                <TextBlock Text="Obiskano" FontSize="24" Margin="20,0,0,0" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Podrobnosti" DoubleTapped="TextBlock_DoubleTapped_3">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE897;" />
+                                <TextBlock Text="Podrobnosti" FontSize="24" Margin="20,0,0,0" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Mapa" DoubleTapped="TextBlock_DoubleTapped_4">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE128;" />
+                                <TextBlock Text="Mapa" FontSize="24" Margin="20,0,0,0" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                    </ListBox>
+
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Frame Name="MyFrame"></Frame>
+                </SplitView.Content>
+            </SplitView>
         </Grid>
     </ScrollViewer>
 </Page>

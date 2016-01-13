@@ -58,6 +58,7 @@ namespace TuristFlow
                 else {
                     new ToastHelper().ShowToastWithTitleAndMessage("Napaka","Preverite povezavo");
                 }
+                
                 App.conn.Insert(App.p);
 
             }
@@ -66,8 +67,7 @@ namespace TuristFlow
 
         public static async void insertPerson(Person p)
         {
-
-            await App.MobileService.GetTable<Person>().InsertAsync(p);
+           await App.MobileService.GetTable<Person>().InsertAsync(p);
         }
 
 
